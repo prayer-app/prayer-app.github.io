@@ -1,0 +1,421 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    color: #495057;
+    font-weight: 600;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.table th {
+    font-weight: 600;
+    color: #495057;
+    vertical-align: middle;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #6c757d;
+    color: white;
+}
+
+.nav-pills .nav-link {
+    color: #6c757d;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+#praiseList .card {
+    transition: transform 0.2s;
+}
+
+#praiseList .card:hover {
+    transform: translateY(-2px);
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    width: auto;
+    height: 48px;
+    border-radius: 24px;
+    background-color: var(--bs-primary);
+    color: white;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 8px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.fab:hover {
+    background-color: var(--bs-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.fab i {
+    font-size: 1.5rem;
+}
+
+.fab span {
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Show prayer button when prayer tab content is active */
+#prayer.tab-pane.active ~ #addPrayerBtn {
+    display: flex;
+}
+
+/* Show praise button when praise tab content is active */
+#praise.tab-pane.active ~ #addPraiseBtn {
+    display: flex;
+}
+
+/* Modal Styles */
+.modal-content {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Action Buttons */
+.btn-link {
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: inherit;
+}
+
+.btn-group {
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+/* Base icon styles */
+.bi {
+    font-size: 1.25rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+    transform: scale(1);
+}
+
+.prayer-answered:hover .bi-check-circle,
+.prayer-answered:hover .bi-check-circle-fill {
+    color: #198754 !important;
+    transform: scale(1.2);
+}
+
+.prayer-remove:hover .bi-x-circle-fill {
+    color: #dc3545 !important;
+}
+
+.prayer-archive:hover .bi-archive-fill {
+    color: #ffc107 !important;
+}
+
+/* Follow-up check icon hover state */
+.followup-status:hover .bi-check-circle-fill {
+    transform: scale(1.2);
+    color: #198754 !important;
+}
+
+.followup-status:hover .bi-check-circle-fill.text-success {
+    color: #198754 !important;
+}
+
+.followup-status:hover .bi-check-circle-fill.text-secondary {
+    color: #198754 !important;
+}
+
+/* Only show hover effect for archive button in active prayers list */
+#prayerList .prayer-archive:hover .bi-archive-fill {
+    color: #ffc107 !important;
+}
+
+/* Show hover effect for archive button in archived prayers list */
+#archivedPrayerList .prayer-archive:hover .bi-archive-fill {
+    color: #ffc107 !important;
+}
+
+.prayer-calendar {
+    cursor: pointer;
+}
+
+.prayer-calendar:hover .bi-calendar3-event-fill {
+    color: #0056b3 !important;
+}
+
+/* Remove active state styles */
+.prayer-calendar.active .bi-calendar3-event-fill {
+    color: #6c757d !important;
+}
+
+/* Settings Button */
+.settings-btn {
+    color: #495057;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    transition: color 0.2s;
+}
+
+.settings-btn:hover {
+    color: #007bff;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    color: #495057;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    width: 24px;
+    height: 24px;
+}
+
+.navbar-brand:hover {
+    color: #007bff;
+}
+
+.navbar-brand:hover img {
+    filter: brightness(0) saturate(100%) invert(40%) sepia(98%) saturate(1234%) hue-rotate(194deg) brightness(101%) contrast(101%);
+}
+
+.prayer-edit:hover .bi-pen-fill {
+    color: #0dcaf0 !important;
+}
+
+/* Custom styles */
+.prayer-item {
+    transition: background-color 0.3s ease;
+}
+
+.prayer-item:hover {
+    background-color: #f8f9fa;
+}
+
+.prayer-item.completed {
+    background-color: #e8f5e9;
+}
+
+.prayer-item.completed:hover {
+    background-color: #c8e6c9;
+}
+
+.prayer-item.followed-up {
+    background-color: #e3f2fd;
+}
+
+.prayer-item.followed-up:hover {
+    background-color: #bbdefb;
+}
+
+.prayer-item.completed.followed-up {
+    background-color: #e8f5e9;
+}
+
+.prayer-item.completed.followed-up:hover {
+    background-color: #c8e6c9;
+}
+
+/* Animation for status changes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.status-change {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Prayer answered icon styles */
+.prayer-answered .bi-star-fill {
+    transition: all 0.2s ease;
+}
+
+.prayer-answered:hover .bi-star-fill {
+    transform: scale(1.2);
+    color: #ffc107 !important; /* Bootstrap warning color (yellow) */
+}
+
+.prayer-answered:active .bi-star-fill {
+    transform: scale(1.5);
+    color: #ffc107 !important;
+}
+
+/* Prayer answered animation */
+@keyframes prayerAnswered {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.prayer-answered .bi-star-fill.text-success {
+    animation: prayerAnswered 0.5s ease;
+    color: #ffc107 !important; /* Bootstrap warning color (yellow) */
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+    
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Prayer Answered Icon */
+.prayer-answered:hover .bi-star-fill {
+    color: #198754 !important;
+    transform: scale(1.2);
+}
+
+/* Prayer Remove Icon */
+.prayer-remove:hover .bi-x-circle-fill {
+    color: #dc3545 !important;
+    transform: scale(1.2);
+}
+
+/* Prayer Archive Icon */
+.btn-group .prayer-archive .bi-archive-fill {
+    transition: transform 0.2s ease, color 0.2s ease;
+    transform: scale(1);
+}
+
+.btn-group .prayer-archive:hover .bi-archive-fill {
+    color: #ffc107 !important;
+    transform: scale(1.2);
+}
+
+.btn-group .prayer-archive:active .bi-archive-fill {
+    animation: iconPulse 0.3s ease-in-out;
+}
+
+.btn-group .prayer-archive .bi-archive-fill.text-warning {
+    color: #ffc107;
+    transition: transform 0.2s ease, color 0.2s ease;
+    transform: scale(1);
+}
+
+.btn-group .prayer-archive:hover .bi-archive-fill.text-warning {
+    transform: scale(1.2);
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Prayer Calendar Icon */
+.prayer-calendar:hover .bi-calendar3-event-fill {
+    color: #0056b3 !important;
+    transform: scale(1.2);
+}
+
+/* Prayer Edit Icon */
+.prayer-edit:hover .bi-pen-fill {
+    color: #0dcaf0 !important;
+    transform: scale(1.2);
+}
+
+/* Active state animations */
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.prayer-answered:active .bi-star-fill,
+.prayer-remove:active .bi-x-circle-fill,
+.prayer-archive:active .bi-archive-fill,
+.prayer-calendar:active .bi-calendar3-event-fill,
+.prayer-edit:active .bi-pen-fill {
+    animation: iconPulse 0.3s ease-in-out;
+}
+
+/* Success state styles */
+.prayer-answered .bi-star-fill.text-success {
+    color: #198754;
+}
+
+.prayer-answered:hover .bi-star-fill.text-success {
+    transform: scale(1.2);
+} 
