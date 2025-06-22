@@ -1,0 +1,603 @@
+/* ===== BASE STYLES ===== */
+body {
+    background-color: #f8f9fa;
+}
+
+.no-mptb {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+/* ===== NAVBAR STYLES ===== */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    min-height: 100px;
+    max-height: 100px;
+    height: 100px;
+    padding: 0 !important;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Override Bootstrap's default navbar padding */
+.navbar,
+.navbar.navbar-expand-lg,
+.navbar.navbar-light,
+.navbar.bg-light {
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+}
+
+.navbar * {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.navbar .container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    height: 100px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Most specific navbar rules to override everything */
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+}
+
+/* Most specific container-fluid rules */
+nav.navbar.navbar-expand-lg.navbar-light.bg-light > .container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    height: 100px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Override any Bootstrap container-fluid defaults */
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Target the specific navbar container-fluid */
+nav.navbar .container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    height: 100px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    line-height: 1;
+}
+
+.navbar-brand img {
+    height: 32px;
+    width: auto;
+}
+
+/* ===== CARD STYLES ===== */
+.card {
+    border: none;
+    margin-bottom: 1rem;
+    box-shadow: none !important;
+}
+
+/* Remove shadows from prayer list cards specifically */
+.card.border-0.rounded-0 {
+    box-shadow: none !important;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Prayer list specific styles - full width, no gutters */
+#prayer .row.g-0 .col-12 {
+    padding: 0;
+    margin: 0;
+}
+
+#prayer .row.g-0 .col-12 .card {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none !important;
+}
+
+#prayer .row.g-0 .col-12 .card-body {
+    padding: 1rem;
+}
+
+/* Remove shadow from all prayer-group cards */
+.prayer-group .card {
+    box-shadow: none !important;
+}
+
+/* Remove shadows from all prayer list cards */
+#prayer .card {
+    box-shadow: none !important;
+}
+
+/* Remove padding from container-fluid wrapping prayer list */
+.container-fluid.px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Ensure main content container has no padding */
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.card-title {
+    color: #495057;
+    font-weight: 600;
+}
+
+/* ===== FORM STYLES ===== */
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* ===== BUTTON STYLES ===== */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* ===== TABLE STYLES ===== */
+.table th {
+    font-weight: 600;
+    color: #495057;
+    vertical-align: middle;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* ===== NAVIGATION STYLES ===== */
+.nav-pills .nav-link.active {
+    background-color: #6c757d;
+    color: white;
+}
+
+.nav-pills .nav-link {
+    color: #6c757d;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* ===== FLOATING ACTION BUTTON ===== */
+.fab {
+    position: fixed;
+    width: auto;
+    height: 48px;
+    border-radius: 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 8px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    cursor: pointer;
+    bottom: 20px;
+    right: 20px;
+}
+
+.fab:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    color: white;
+}
+
+.fab i {
+    font-size: 1.5rem;
+}
+
+.fab span {
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ===== MODAL STYLES ===== */
+.modal-content {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.btn-link {
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: none !important;
+}
+
+.btn-link:hover {
+    color: inherit;
+    box-shadow: none !important;
+}
+
+.btn-group {
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+.btn-group .btn-link {
+    box-shadow: none !important;
+}
+
+.btn-group .btn-link:hover {
+    box-shadow: none !important;
+}
+
+/* Remove shadows from all action buttons */
+.prayer-answered,
+.prayer-remove,
+.prayer-archive,
+.prayer-calendar,
+.prayer-edit,
+.followup-status {
+    box-shadow: none !important;
+}
+
+.prayer-answered:hover,
+.prayer-remove:hover,
+.prayer-archive:hover,
+.prayer-calendar:hover,
+.prayer-edit:hover,
+.followup-status:hover {
+    box-shadow: none !important;
+}
+
+/* ===== ICON STYLES ===== */
+.bi {
+    font-size: 1.25rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+    transform: scale(1);
+}
+
+/* Prayer action button hover effects */
+.prayer-answered:hover .bi-check-circle,
+.prayer-answered:hover .bi-check-circle-fill {
+    color: #198754 !important;
+    transform: scale(1.2);
+}
+
+.prayer-remove:hover .bi-x-circle-fill {
+    color: #dc3545 !important;
+}
+
+.prayer-archive:hover .bi-archive-fill {
+    color: #ffc107 !important;
+}
+
+.prayer-calendar:hover .bi-calendar3-event-fill {
+    color: #0056b3 !important;
+}
+
+.prayer-edit:hover .bi-pen-fill {
+    color: #0056b3 !important;
+}
+
+/* Follow-up check icon hover state */
+.followup-status:hover .bi-check-circle-fill {
+    transform: scale(1.2);
+    color: #198754 !important;
+}
+
+.followup-status:hover .bi-check-circle-fill.text-success {
+    color: #198754 !important;
+}
+
+.followup-status:hover .bi-check-circle-fill.text-secondary {
+    color: #198754 !important;
+}
+
+/* Settings button */
+.settings-btn {
+    color: #007bff;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+}
+
+.settings-btn:hover {
+    background-color: rgba(0,123,255,0.1);
+    color: #007bff;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Prayer answered icon styles */
+.prayer-answered .bi-star-fill {
+    transition: all 0.2s ease;
+}
+
+.prayer-answered:hover .bi-star-fill {
+    transform: scale(1.2);
+    color: #ffc107 !important; /* Bootstrap warning color (yellow) */
+}
+
+.prayer-answered:active .bi-star-fill {
+    transform: scale(1.5);
+    color: #ffc107 !important;
+}
+
+/* Prayer answered animation */
+@keyframes prayerAnswered {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.prayer-answered .bi-star-fill.text-success {
+    animation: prayerAnswered 0.5s ease;
+    color: #ffc107 !important; /* Bootstrap warning color (yellow) */
+}
+
+/* Prayer answered icon styles */
+.prayer-answered:hover .bi-star-fill {
+    color: #198754 !important;
+    transform: scale(1.2);
+}
+
+/* Prayer Remove Icon */
+.prayer-remove:hover .bi-x-circle-fill {
+    color: #dc3545 !important;
+    transform: scale(1.2);
+}
+
+/* Prayer Archive Icon */
+.btn-group .prayer-archive .bi-archive-fill {
+    transition: transform 0.2s ease, color 0.2s ease;
+    transform: scale(1);
+}
+
+.btn-group .prayer-archive:hover .bi-archive-fill {
+    color: #ffc107 !important;
+    transform: scale(1.2);
+}
+
+.btn-group .prayer-archive:active .bi-archive-fill {
+    animation: iconPulse 0.3s ease-in-out;
+}
+
+.btn-group .prayer-archive .bi-archive-fill.text-warning {
+    color: #ffc107;
+    transition: transform 0.2s ease, color 0.2s ease;
+    transform: scale(1);
+}
+
+.btn-group .prayer-archive:hover .bi-archive-fill.text-warning {
+    transform: scale(1.2);
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Active state animations */
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.prayer-answered:active .bi-star-fill,
+.prayer-remove:active .bi-x-circle-fill,
+.prayer-archive:active .bi-archive-fill,
+.prayer-calendar:active .bi-calendar3-event-fill,
+.prayer-edit:active .bi-pen-fill {
+    animation: iconPulse 0.3s ease-in-out;
+}
+
+/* Target prayer section cards specifically */
+body #prayer .container-fluid .tab-content .tab-pane .row .col-12 .card {
+    box-shadow: none !important;
+}
+
+/* Remove shadow specifically from Active Prayers */
+#prayerList {
+    box-shadow: none !important;
+}
+
+#prayerList .card,
+#prayerList .card-body,
+#prayerList .card-header {
+    box-shadow: none !important;
+}
+
+/* Override any Bootstrap card shadows */
+.card,
+.card.border-0,
+.card.rounded-0,
+.card.border-0.rounded-0 {
+    box-shadow: none !important;
+}
+
+/* Success state styles */
+.prayer-answered .bi-star-fill.text-success {
+    color: #198754;
+}
+
+.prayer-answered:hover .bi-star-fill.text-success {
+    transform: scale(1.2);
+}
+
+/* Override transitions for checkmark in prayer details modal */
+.prayer-details-modal .btn-link .bi-check-circle-fill,
+.prayer-details-modal .btn-link .bi-circle {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+  transform-origin: center !important;
+}
+
+.prayer-details-modal .btn-link .bi-check-circle-fill:hover,
+.prayer-details-modal .btn-link .bi-circle:hover {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Override transitions for Add button in prayer details modal */
+.prayer-details-modal .btn-primary {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.prayer-details-modal .btn-primary:hover {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.prayer-details-modal .btn-primary .bi-plus-circle-fill {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.prayer-details-modal .btn-primary:hover .bi-plus-circle-fill {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Schedule form animation */
+.schedule-form-animate {
+  animation: fadeInSlideDown 0.4s ease-out;
+  transform-origin: top;
+}
+
+@keyframes fadeInSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

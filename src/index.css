@@ -1,0 +1,748 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+  color: #212529;
+  line-height: 1.6;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Navigation */
+.navbar {
+  background: white !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #e9ecef;
+  padding: 1.5rem 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #495057 !important;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  margin-right: 0.75rem;
+  width: 32px;
+  height: 32px;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #6c757d !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  color: #495057 !important;
+  background-color: #f8f9fa;
+}
+
+.nav-link.active {
+  color: #007bff !important;
+  background-color: #e7f3ff;
+}
+
+.settings-btn {
+  color: #6c757d;
+  text-decoration: none;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-size: 1.25rem;
+}
+
+.settings-btn:hover {
+  color: #495057;
+  background-color: #f8f9fa;
+}
+
+/* Main content */
+.container-fluid {
+  padding: 0 1.5rem;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: white;
+  transition: box-shadow 0.2s ease;
+  margin-bottom: 1.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+/* Tables */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  border: none;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1rem 0.75rem;
+  background-color: #f8f9fa;
+}
+
+.table td {
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f3f4;
+  color: #495057;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Prayer rows */
+.prayer-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.prayer-row:hover {
+  background-color: #f8f9fa;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+  color: white;
+}
+
+.btn-link {
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  color: #6c757d;
+}
+
+.btn-link:hover {
+  text-decoration: none;
+}
+
+/* Action buttons */
+.btn-group .btn-link {
+  margin: 0 0.125rem;
+}
+
+/* Icons */
+.bi {
+  font-size: 1.1rem;
+}
+
+/* Star animations */
+.bi-star-fill {
+  transition: all 0.3s ease;
+}
+
+.bi-star-fill:hover {
+  color: #ffc107 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.bi-star-fill.clicked {
+  animation: starClick 0.6s ease;
+}
+
+@keyframes starClick {
+  0% { transform: scale(1); }
+  25% { transform: scale(2.2) rotate(15deg); }
+  50% { transform: scale(2.5) rotate(30deg); }
+  75% { transform: scale(2.2) rotate(15deg); }
+  100% { transform: scale(1); }
+}
+
+/* Other icon transitions */
+.bi-archive-fill,
+.bi-calendar3-event-fill,
+.bi-pen-fill,
+.bi-x-circle-fill,
+.bi-check-circle-fill {
+  transition: all 0.2s ease;
+}
+
+.bi-archive-fill:hover,
+.bi-calendar3-event-fill:hover,
+.bi-pen-fill:hover,
+.bi-x-circle-fill:hover,
+.bi-check-circle-fill:hover {
+  transform: scale(1.3);
+}
+
+.bi-x-circle-fill:hover {
+  color: #dc3545 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.bi-pen-fill:hover {
+  color: #0dcaf0 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.bi-calendar3-event-fill:hover {
+  color: #198754 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  color: white;
+}
+
+.fab span {
+  position: absolute;
+  right: 70px;
+  white-space: nowrap;
+  background-color: #212529;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.fab:hover span {
+  opacity: 1;
+}
+
+/* Modals */
+.modal-content {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  border-bottom: 1px solid #e9ecef;
+  padding: 1.5rem;
+}
+
+.modal-title {
+  font-weight: 600;
+  color: #212529;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 1px solid #e9ecef;
+  padding: 1.5rem;
+}
+
+/* Form controls */
+.form-control {
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Badges */
+.badge {
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+  color: white !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+  color: white !important;
+}
+
+/* Text utilities */
+.text-end {
+  text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+    min-height: 80px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  .navbar-brand img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem;
+  }
+  
+  .container-fluid {
+    padding: 1rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .fab {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+  
+  .fab span {
+    display: none;
+  }
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Empty states */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6c757d;
+}
+
+.empty-state .bi {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* Section headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.section-title {
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+/* Clean table styling */
+.table-responsive {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Build Info Footer */
+.build-info-footer {
+  margin-top: auto;
+  background-color: #f8f9fa !important;
+  padding: 0.75rem 0 !important;
+}
+
+.build-info-footer .container {
+  max-width: 1200px;
+}
+
+.build-info-footer small {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.build-info-footer .text-center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .build-info-footer .text-center {
+    text-align: center;
+  }
+  
+  .table-responsive {
+    border: none;
+  }
+  
+  .table {
+    border: none;
+  }
+  
+  .table thead {
+    display: none;
+  }
+  
+  .table tbody tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    background: white;
+    overflow: hidden;
+  }
+  
+  .table tbody tr:hover {
+    border-color: #dee2e6;
+  }
+  
+  .table tbody td {
+    display: block;
+    border: none;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  
+  .table tbody td:not(:last-child) {
+    border-bottom: 1px solid #f8f9fa;
+  }
+  
+  .table tbody td:before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .table tbody td:first-child {
+    padding-top: 1rem;
+  }
+  
+  .table tbody td:last-child {
+    padding-bottom: 1rem;
+    border-bottom: none;
+  }
+  
+  /* Prayer text styling */
+  .table tbody td[data-label*="Prayer for"] .fw-medium {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+  
+  .table tbody td[data-label*="Prayer for"] small {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+  
+  /* Date styling */
+  .table tbody td[data-label="Follow-up Date"] .text-muted,
+  .table tbody td[data-label="Last Followed Up"] .text-muted {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  /* Combine follow-up dates on same line */
+  .table tbody td[data-label="Follow-up Date"] {
+    display: inline-block;
+    width: 50%;
+    padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .table tbody td[data-label="Last Followed Up"] {
+    display: inline-block;
+    width: 50%;
+    padding-left: 0.5rem;
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+  }
+  
+  .table tbody td[data-label="Follow-up Date"]:before {
+    content: "Followup next";
+    display: block;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .table tbody td[data-label="Last Followed Up"]:before {
+    content: "Last followup";
+    display: block;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Actions styling */
+  .table tbody td[data-label=""] {
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+  
+  .table tbody td[data-label=""] .btn-group {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .table tbody td[data-label=""] .btn {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  /* Empty state improvements */
+  .empty-state {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background: white;
+    border-radius: 0.75rem;
+    border: 1px solid #e9ecef;
+    margin: 1rem 0;
+  }
+  
+  .empty-state .bi {
+    font-size: 2.5rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+  
+  .empty-state h6 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .empty-state p {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+  
+  /* Section headers on mobile */
+  .section-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+  }
+  
+  .badge {
+    align-self: flex-start;
+  }
+}
+
+/* Ensure App takes full height */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-content {
+  flex: 1;
+}
+
+.prayer-answered:hover .bi-star-fill {
+  color: #ffc107 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.prayer-remove:hover .bi-x-circle-fill {
+  color: #dc3545 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.prayer-edit:hover .bi-pen-fill {
+  color: #0dcaf0 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.prayer-calendar:hover .bi-calendar3-event-fill {
+  color: #198754 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.prayer-archive:hover .bi-archive-fill {
+  color: #ffc107 !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.prayer-remove {
+  margin-right: 0 !important;
+  padding-right: 3px !important;
+}
+.prayer-remove .bi-x-circle-fill {
+  margin-right: 0 !important;
+  padding-right: 3px !important;
+}
+.btn-group > .prayer-remove:last-child {
+  margin-right: 0 !important;
+  padding-right: 3px !important;
+}
+.btn-group > .btn:last-child {
+  margin-right: 0 !important;
+  padding-right: 3px !important;
+}
+.table tbody td[data-label=""] {
+  padding-right: 3px !important;
+} 

@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prayer & Praise</title>
-    <!-- Bundled CSS -->
-    <link href="assets/css/styles.css" rel="stylesheet">
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light no-mptb">
+        <div class="container-fluid no-mptb">
             <a class="navbar-brand d-flex align-items-center" href="#" title="Prayer & Praise">
-                <img src="assets/images/prayer-icon.svg" alt="Prayer & Praise" width="24" height="24">
+                <img src="src/assets/images/icons/icon.svg" alt="Prayer & Praise" width="24" height="24">
             </a>
             <ul class="nav nav-pills mx-auto">
                 <li class="nav-item">
@@ -38,7 +36,7 @@
             <div class="tab-pane fade show active" id="prayer">
                 <div class="row g-0">
                     <!-- Prayer List -->
-                    <div class="col-12">
+                    <div class="col-12 prayer-group">
                         <div class="card border-0 rounded-0">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -66,7 +64,7 @@
                         </div>
                     </div>
                     <!-- Answered Prayers -->
-                    <div class="col-12 mt-4">
+                    <div class="col-12 prayer-group">
                         <div class="card border-0 rounded-0">
                             <div class="card-body">
                                 <h5 class="card-title">Answered Prayers</h5>
@@ -89,7 +87,7 @@
                         </div>
                     </div>
                     <!-- Archived Prayers -->
-                    <div class="col-12 mt-4">
+                    <div class="col-12 prayer-group">
                         <div class="card border-0 rounded-0">
                             <div class="card-body">
                                 <h5 class="card-title">Archived Prayers</h5>
@@ -112,6 +110,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- Prayer Floating Action Button -->
+                <button class="fab" id="addPrayerBtn" data-bs-toggle="modal" data-bs-target="#addPrayerModal">
+                    <i class="bi bi-plus-lg"></i>
+                    <span>Add Prayer</span>
+                </button>
             </div>
 
             <!-- Praise Section -->
@@ -167,15 +170,14 @@
                         </div>
                     </div>
                 </div>
+                <!-- Praise Floating Action Button -->
+                <button class="fab" id="addPraiseBtn" data-bs-toggle="modal" data-bs-target="#addPraiseModal">
+                    <i class="bi bi-plus-lg"></i>
+                    <span>Add Praise</span>
+                </button>
             </div>
         </div>
     </div>
-
-    <!-- Floating Action Button -->
-    <button class="fab" id="floatingActionBtn" style="bottom: 20px; right: 20px;">
-        <i class="bi bi-plus-lg"></i>
-        <span>Add Prayer</span>
-    </button>
 
     <!-- Prayer Modal -->
     <div class="modal fade" id="addPrayerModal" tabindex="-1" aria-labelledby="addPrayerModalLabel" aria-hidden="true">
@@ -197,7 +199,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="followup_at" class="form-label">Follow-up Date</label>
-                            <input type="date" class="form-control" id="followup_at" required>
+                            <input type="date" class="form-control" id="followup_at">
                         </div>
                         <div class="text-end">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -270,7 +272,7 @@
                     <form id="followupForm">
                         <div class="mb-3">
                             <label for="newFollowupDate" class="form-label">New Follow-up Date</label>
-                            <input type="date" class="form-control" id="newFollowupDate" required>
+                            <input type="date" class="form-control" id="newFollowupDate">
                         </div>
                         <div class="text-end">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -377,7 +379,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="editFollowupAt" class="form-label">Follow-up Date</label>
-                            <input type="date" class="form-control" id="editFollowupAt" required>
+                            <input type="date" class="form-control" id="editFollowupAt">
                         </div>
                         <div class="text-end">
                             <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
@@ -390,7 +392,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/vendor.bundle.js"></script>
-    <script src="assets/js/app.bundle.js" defer></script>
+    <script src="src/assets/js/vendor.bundle.js"></script>
+    <script src="src/assets/js/app.bundle.js" defer></script>
+    <!-- Custom CSS - Load after Bootstrap to override defaults -->
+    <link href="src/assets/css/styles.css" rel="stylesheet">
 </body>
 </html> 

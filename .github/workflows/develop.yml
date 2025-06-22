@@ -1,0 +1,60 @@
+name: Development Build
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+env:
+  BUILD_PATH: dist
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run linting
+      run: npm run lint
+      
+    - name: Run tests
+      run: npm run test -- --watchAll=false --coverage
+      
+    - name: Build application
+      run: npm run build
+      env:
+        CI: true
+        BUILD_PATH: dist
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: develop-build-files
+        path: dist/
+        retention-days: 7
+        
+    - name: Create build info
+      run: |
+        echo "Development Build completed at $(date)" > dist/build-info.txt
+        echo "Commit: ${{ github.sha }}" >> dist/build-info.txt
+        echo "Branch: ${{ github.ref_name }}" >> dist/build-info.txt
+        echo "Build Number: ${{ github.run_number }}" >> dist/build-info.txt
+        echo "Triggered by: ${{ github.actor }}" >> dist/build-info.txt
+        echo "Environment: Development" >> dist/build-info.txt
+        
+    - name: Verify build info
+      run: |
+        echo "Build info contents:"
+        cat dist/build-info.txt 

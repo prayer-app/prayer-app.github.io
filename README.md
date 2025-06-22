@@ -1,171 +1,163 @@
-# Prayer & Praise
+# Prayer & Praise App - React Version
 
-A Progressive Web App (PWA) for managing prayer requests and praises, built with modern web technologies. The application helps users track prayer requests, set follow-up dates, and record praises, with robust timezone handling and offline support.
+[![Build and Deploy](https://github.com/your-username/prayer-app.github.io/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/your-username/prayer-app.github.io/actions)
+
+A React-based prayer and praise tracking application that helps you manage prayer requests and record praises.
 
 ## Features
 
-- **Prayer Management**
-  - Add and track prayer requests
-  - Set follow-up dates with timezone support
-  - Mark prayers as answered
-  - Archive prayers
-  - Track follow-up history
-  - Automatic date conversion between UTC and local timezone
+- **Prayer Management**: Add, edit, and track prayer requests with follow-up dates
+- **Praise Recording**: Log and archive praises
+- **Follow-up System**: Track when you've followed up on prayers
+- **Status Tracking**: Mark prayers as answered, archived, or active
+- **Data Export**: Export your data as JSON backup
+- **Responsive Design**: Works on desktop and mobile devices
 
-- **Praise Journal**
-  - Record and store praises
-  - View praise history
-  - Timestamp tracking with timezone support
+## CI/CD Pipeline
 
-- **Offline Support**
-  - Works without internet connection
-  - Syncs when back online
-  - Local storage for data persistence
+This project uses GitHub Actions for continuous integration and deployment:
 
-- **Timezone Handling**
-  - Automatic timezone detection
-  - UTC storage for consistency
-  - Local timezone display
-  - Proper handling of daylight saving time
+- **Automated Testing**: Runs linting and tests on every commit
+- **Build Verification**: Ensures the app builds successfully
+- **Deployment**: Automatically deploys to GitHub Pages on main branch
+- **Build Artifacts**: Stores build files for 30 days
+- **PR Comments**: Provides build status feedback on pull requests
 
-## Tech Stack
+### Build Information
 
-- **Frontend**
-  - HTML5
-  - CSS3 (Bootstrap 5)
-  - JavaScript (ES6+)
-  - Bootstrap Icons
-  - jQuery
-  - date-fns & date-fns-tz for timezone-aware date handling
+Each build includes:
+- Commit SHA
+- Branch name
+- Build number
+- Trigger information
+- Build timestamp
 
-- **Build Tools**
-  - Webpack 5
-  - npm for package management
+## Getting Started
 
-## Development Setup
+### Prerequisites
 
-1. **Clone the repository**
-   ```bash
-   git clone [repository-url]
-   cd prayer-praise
-   ```
+- Node.js (version 14 or higher)
+- npm or yarn
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### Installation
 
-3. **Development build**
-   ```bash
-   npm run build:dev
-   ```
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd prayer-app.github.io
+```
 
-4. **Production build**
-   ```bash
-   npm run build:prod
-   ```
+2. Install dependencies:
+```bash
+npm install
+```
 
-5. **Watch mode (development)**
-   ```bash
-   npm run watch
-   ```
+3. Start the development server:
+```bash
+npm start
+```
 
-5. **Serving the HTML files (development)**
-   ```bash
-   npm run serve
-   ```
+The app will open in your browser at `http://localhost:3000`.
+
+### Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+This will create an optimized build in the `build` folder.
+
+## Usage
+
+### Adding Prayers
+1. Click the "Add Prayer" button (floating action button)
+2. Fill in the person's name and prayer request
+3. Optionally set a follow-up date
+4. Click "Add Prayer"
+
+### Managing Prayers
+- **Mark as Answered**: Click the star icon to mark a prayer as answered
+- **Edit**: Click the pen icon to edit prayer details
+- **Follow-up**: Click the calendar icon to manage follow-up dates
+- **Archive**: Click the archive icon to archive a prayer
+- **Remove**: Click the X icon to remove a prayer
+
+### Adding Praises
+1. Switch to the "Praise" tab
+2. Click the "Add Praise" button
+3. Enter your praise
+4. Click "Add Praise"
+
+### Settings
+- **Export Data**: Download a JSON backup of all your data
+- **Reset Database**: Clear all prayers and praises (use with caution)
+
+## Data Storage
+
+All data is stored locally in your browser's localStorage. This means:
+- Your data stays private and local to your device
+- No internet connection required
+- Data persists between browser sessions
+- You can export your data for backup
+
+## Technology Stack
+
+- **React 18**: Modern React with hooks
+- **React Bootstrap**: UI components and styling
+- **Bootstrap 5**: CSS framework
+- **Bootstrap Icons**: Icon library
+- **date-fns**: Date manipulation utilities
+- **date-fns-tz**: Timezone support
 
 ## Project Structure
 
 ```
-prayer-praise/
-├── assets/
-│   ├── dist/          # Compiled files
-│   │   ├── css/
-│   │   ├── js/
-│   │   ├── fonts/
-│   │   └── images/
-│   └── src/
-│       ├── css/
-│       ├── js/
-│       ├── fonts/
-│       └── images/
-├── node_modules/
-├── index.html
-├── service-worker.js
-├── webpack.config.js
-├── package.json
-└── README.md
+src/
+├── components/          # React components
+│   ├── Navigation.js
+│   ├── PrayerList.js
+│   ├── PraiseList.js
+│   ├── AddPrayerModal.js
+│   ├── AddPraiseModal.js
+│   ├── SettingsModal.js
+│   ├── FollowupModal.js
+│   ├── EditPrayerModal.js
+│   ├── ConfirmationModal.js
+│   └── PrayerDetailsModal.js
+├── utils/              # Utility functions
+│   ├── storage.js      # localStorage management
+│   └── dateUtils.js    # Date formatting utilities
+├── assets/             # Static assets
+│   ├── images/
+│   ├── fonts/
+│   ├── css/
+│   └── js/
+├── App.js              # Main app component
+├── index.js            # App entry point
+└── index.css           # Global styles
 ```
-
-## Date and Timezone Handling
-
-The application uses a robust date handling system:
-
-- **Storage**: All dates are stored in UTC format
-- **Display**: Dates are converted to the user's local timezone
-- **Conversion**: Uses date-fns-tz for reliable timezone conversions
-- **Format**: Consistent date formatting across the application
-
-### Date Functions
-
-- `formatDateForStorage(date)`: Converts local dates to UTC for storage
-- `formatDate(dateString)`: Converts UTC dates to local timezone for display
-- `localToUTC(date)`: Converts local dates to UTC
-- `utcToLocal(utcDate)`: Converts UTC dates to local timezone
-
-## Build Process
-
-The project uses Webpack for bundling and building:
-
-- **Development Build**
-  - Generates source maps
-  - Uncompressed files
-  - Hot reloading support
-
-- **Production Build**
-  - Minified files
-  - Optimized assets
-  - No source maps
-
-## Dependencies
-
-- **Production**
-  - bootstrap: ^5.3.0
-  - bootstrap-icons: ^1.11.0
-  - date-fns: ^2.30.0
-  - date-fns-tz: ^2.0.0
-  - jquery: ^3.7.0
-
-- **Development**
-  - webpack: ^5.89.0
-  - webpack-cli: ^5.1.4
-  - css-loader: ^6.8.1
-  - style-loader: ^3.3.3
-  - mini-css-extract-plugin: ^2.7.6
-  - copy-webpack-plugin: ^11.0.0
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the ISC License.
 
-## Acknowledgments
+## Migration from Vanilla JavaScript
 
-- Bootstrap team for the amazing UI framework
-- date-fns team for the excellent date manipulation library
-- All contributors who have helped shape this project 
+This React version is a complete rewrite of the original vanilla JavaScript application. The core functionality remains the same, but the codebase is now:
+
+- More maintainable with component-based architecture
+- Easier to test with isolated components
+- More performant with React's virtual DOM
+- Better developer experience with modern tooling
+
+All existing data from the vanilla JavaScript version should be compatible and will be automatically migrated when you first load the React app.
