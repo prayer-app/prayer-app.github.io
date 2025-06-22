@@ -75,6 +75,17 @@ module.exports = {
                   filename: 'assets/images/[name][ext]'
                 };
               }
+              // Handle SVG files specifically
+              if (
+                oneOfRule.test &&
+                oneOfRule.test.toString().includes('svg') &&
+                oneOfRule.type === 'asset/resource'
+              ) {
+                oneOfRule.generator = {
+                  ...oneOfRule.generator,
+                  filename: 'assets/images/[name][ext]'
+                };
+              }
               // For any asset/resource, replace static with assets in the output path
               if (oneOfRule.type === 'asset/resource') {
                 if (oneOfRule.generator && oneOfRule.generator.filename) {
@@ -88,6 +99,20 @@ module.exports = {
                 }
               }
             });
+          }
+        });
+
+        // Also handle any plugins that might generate static assets
+        webpackConfig.plugins.forEach(plugin => {
+          if (plugin.constructor.name === 'CopyPlugin') {
+            // Update CopyPlugin patterns if they exist
+            if (plugin.options && plugin.options.patterns) {
+              plugin.options.patterns.forEach(pattern => {
+                if (pattern.to && pattern.to.includes('static')) {
+                  pattern.to = pattern.to.replace('static', 'assets');
+                }
+              });
+            }
           }
         });
       }
