@@ -1,6 +1,7 @@
 {
   "name": "prayer-praise-react",
   "version": "1.0.0",
+  "homepage": "https://prayer-app.github.io/",
   "main": "index.js",
   "scripts": {
     "start": "craco start",

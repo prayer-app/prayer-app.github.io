@@ -18,8 +18,8 @@ module.exports = {
       if (env === 'production') {
         webpackConfig.output.path = path.resolve(__dirname, 'dist');
         
-        // Change static folder to assets
-        webpackConfig.output.publicPath = '/assets/';
+        // Set public path to root for GitHub Pages
+        webpackConfig.output.publicPath = '/';
         
         // Update asset filenames to use assets folder
         if (webpackConfig.optimization && webpackConfig.optimization.splitChunks) {
@@ -75,10 +75,16 @@ module.exports = {
                   filename: 'assets/images/[name][ext]'
                 };
               }
-              // Replace static with assets in any other asset/resource
+              // For any asset/resource, replace static with assets in the output path
               if (oneOfRule.type === 'asset/resource') {
                 if (oneOfRule.generator && oneOfRule.generator.filename) {
                   oneOfRule.generator.filename = oneOfRule.generator.filename.replace('static', 'assets');
+                } else {
+                  // Default to assets/media if not set
+                  oneOfRule.generator = {
+                    ...oneOfRule.generator,
+                    filename: 'assets/media/[name][ext]'
+                  };
                 }
               }
             });
