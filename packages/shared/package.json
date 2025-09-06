@@ -1,0 +1,23 @@
+{
+  "name": "@prayer-app/shared",
+  "version": "1.0.0",
+  "description": "Shared business logic for Prayer & Praise app",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./storage": "./storage.js",
+    "./dateUtils": "./dateUtils.js",
+    "./notifications": "./notifications.js"
+  },
+  "keywords": ["prayer", "praise", "shared", "utilities"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.30.0"
+  },
+  "peerDependencies": {
+    "@react-native-async-storage/async-storage": "^1.21.0",
+    "react-native-push-notification": "^8.1.1"
+  }
+} 

@@ -1,163 +1,242 @@
-# Prayer & Praise App - React Version
+# Prayer & Praise App
 
-[![Build and Deploy](https://github.com/your-username/prayer-app.github.io/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/your-username/prayer-app.github.io/actions)
+A comprehensive prayer and praise tracking application available as both a Progressive Web App (PWA) and React Native mobile app. Track prayer requests, manage follow-ups, and celebrate answered prayers across all your devices.
 
-A React-based prayer and praise tracking application that helps you manage prayer requests and record praises.
+## 🌟 Features
 
-## Features
+### Core Functionality
+- **Prayer Management**: Add, edit, and track prayer requests for people you care about
+- **Follow-up System**: Schedule and manage prayer follow-ups with reminders
+- **Praise Tracking**: Record and celebrate answered prayers and blessings
+- **Cross-Platform**: Available as PWA and native mobile apps
+- **Offline Support**: Works without internet connection
+- **Data Sync**: Shared business logic ensures consistent experience
 
-- **Prayer Management**: Add, edit, and track prayer requests with follow-up dates
-- **Praise Recording**: Log and archive praises
-- **Follow-up System**: Track when you've followed up on prayers
-- **Status Tracking**: Mark prayers as answered, archived, or active
-- **Data Export**: Export your data as JSON backup
-- **Responsive Design**: Works on desktop and mobile devices
+### PWA Features
+- **Progressive Web App**: Install on desktop and mobile browsers
+- **Service Worker**: Background sync and offline functionality
+- **Push Notifications**: Web-based notifications for reminders
+- **Responsive Design**: Optimized for all screen sizes
 
-## CI/CD Pipeline
+### Mobile App Features
+- **Native Performance**: Smooth animations and native UI components
+- **Push Notifications**: Native notifications for iOS and Android
+- **Offline Storage**: Local data persistence with AsyncStorage
+- **Platform Integration**: Native sharing, date pickers, and more
 
-This project uses GitHub Actions for continuous integration and deployment:
+## 📱 Platforms
 
-- **Automated Testing**: Runs linting and tests on every commit
-- **Build Verification**: Ensures the app builds successfully
-- **Deployment**: Automatically deploys to GitHub Pages on main branch
-- **Build Artifacts**: Stores build files for 30 days
-- **PR Comments**: Provides build status feedback on pull requests
+### PWA Version
+- **Desktop**: Chrome, Firefox, Safari, Edge
+- **Mobile**: iOS Safari, Android Chrome, Samsung Internet
+- **Installable**: Add to home screen on supported devices
 
-### Build Information
+### React Native Version
+- **iOS**: iPhone and iPad (iOS 12+)
+- **Android**: Android 6.0+ (API level 23+)
 
-Each build includes:
-- Commit SHA
-- Branch name
-- Build number
-- Trigger information
-- Build timestamp
+## 🚀 Quick Start
 
-## Getting Started
+### PWA Version
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/prayer-app.github.io.git
+   cd prayer-app.github.io
+   ```
 
-### Prerequisites
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-- Node.js (version 14 or higher)
-- npm or yarn
+3. **Start development server**:
+   ```bash
+   npm start
+   ```
 
-### Installation
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd prayer-app.github.io
-```
+### React Native Version
+1. **Navigate to mobile directory**:
+   ```bash
+   cd mobile
+   ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-3. Start the development server:
-```bash
-npm start
-```
+3. **iOS Setup** (macOS only):
+   ```bash
+   cd ios && pod install && cd ..
+   ```
 
-The app will open in your browser at `http://localhost:3000`.
+4. **Run the app**:
+   ```bash
+   # iOS
+   npm run ios
+   
+   # Android
+   npm run android
+   ```
 
-### Building for Production
-
-To create a production build:
-
-```bash
-npm run build
-```
-
-This will create an optimized build in the `build` folder.
-
-## Usage
-
-### Adding Prayers
-1. Click the "Add Prayer" button (floating action button)
-2. Fill in the person's name and prayer request
-3. Optionally set a follow-up date
-4. Click "Add Prayer"
-
-### Managing Prayers
-- **Mark as Answered**: Click the star icon to mark a prayer as answered
-- **Edit**: Click the pen icon to edit prayer details
-- **Follow-up**: Click the calendar icon to manage follow-up dates
-- **Archive**: Click the archive icon to archive a prayer
-- **Remove**: Click the X icon to remove a prayer
-
-### Adding Praises
-1. Switch to the "Praise" tab
-2. Click the "Add Praise" button
-3. Enter your praise
-4. Click "Add Praise"
-
-### Settings
-- **Export Data**: Download a JSON backup of all your data
-- **Reset Database**: Clear all prayers and praises (use with caution)
-
-## Data Storage
-
-All data is stored locally in your browser's localStorage. This means:
-- Your data stays private and local to your device
-- No internet connection required
-- Data persists between browser sessions
-- You can export your data for backup
-
-## Technology Stack
-
-- **React 18**: Modern React with hooks
-- **React Bootstrap**: UI components and styling
-- **Bootstrap 5**: CSS framework
-- **Bootstrap Icons**: Icon library
-- **date-fns**: Date manipulation utilities
-- **date-fns-tz**: Timezone support
-
-## Project Structure
+## 📁 Project Structure
 
 ```
-src/
-├── components/          # React components
-│   ├── Navigation.js
-│   ├── PrayerList.js
-│   ├── PraiseList.js
-│   ├── AddPrayerModal.js
-│   ├── AddPraiseModal.js
-│   ├── SettingsModal.js
-│   ├── FollowupModal.js
-│   ├── EditPrayerModal.js
-│   ├── ConfirmationModal.js
-│   └── PrayerDetailsModal.js
-├── utils/              # Utility functions
-│   ├── storage.js      # localStorage management
-│   └── dateUtils.js    # Date formatting utilities
-├── assets/             # Static assets
-│   ├── images/
-│   ├── fonts/
-│   ├── css/
-│   └── js/
-├── App.js              # Main app component
-├── index.js            # App entry point
-└── index.css           # Global styles
+prayer-app.github.io/
+├── src/                    # PWA source code
+│   ├── components/         # React components
+│   ├── utils/             # Utilities and services
+│   └── assets/            # Images, fonts, styles
+├── mobile/                # React Native app
+│   ├── src/screens/       # Mobile screens
+│   ├── App.js             # Main mobile app
+│   └── package.json       # Mobile dependencies
+├── shared/                # Shared business logic
+│   ├── storage.js         # Cross-platform storage
+│   ├── dateUtils.js       # Date utilities
+│   └── notifications.js   # Notification service
+├── public/                # PWA static assets
+├── package.json           # PWA dependencies
+└── README.md              # This file
 ```
 
-## Contributing
+## 🔧 Development
+
+### Shared Business Logic
+Both versions share core business logic through the `shared/` directory:
+- **Storage**: Platform-agnostic data persistence
+- **Date Utils**: Consistent date formatting and manipulation
+- **Notifications**: Cross-platform notification handling
+
+### PWA Development
+- Built with React and Create React App
+- Uses Bootstrap for UI components
+- Service worker for offline functionality
+- Web Push API for notifications
+
+### Mobile Development
+- React Native with React Navigation
+- React Native Paper for Material Design
+- AsyncStorage for local data
+- React Native Push Notification for alerts
+
+## 📦 Available Scripts
+
+### PWA Scripts
+- `npm start`: Start development server
+- `npm run build`: Build for production
+- `npm test`: Run tests
+- `npm run lint`: Lint code
+
+### Mobile Scripts
+- `npm run mobile:ios`: Run on iOS simulator
+- `npm run mobile:android`: Run on Android emulator
+- `npm run mobile:start`: Start Metro bundler
+- `npm run mobile:clean`: Clean build artifacts
+
+## 🔔 Notifications
+
+### PWA Notifications
+- Web Push API integration
+- Service worker background sync
+- Browser-based permission handling
+
+### Mobile Notifications
+- Native push notifications
+- Local notification scheduling
+- Platform-specific channels (Android)
+
+## 🎨 UI/UX Features
+
+### Consistent Design
+- Material Design principles
+- Responsive layouts
+- Accessibility support
+- Dark/light theme support (planned)
+
+### Mobile Optimizations
+- Touch-friendly interfaces
+- Native gestures
+- Platform-specific navigation
+- Optimized for one-handed use
+
+## 🔒 Data & Privacy
+
+- **Local Storage**: All data stored locally on device
+- **No Cloud Sync**: Privacy-focused, no external servers
+- **Export/Import**: Backup and restore functionality
+- **Data Control**: Full user control over data
+
+## 🛠️ Technology Stack
+
+### PWA
+- React 18
+- Bootstrap 5
+- Service Workers
+- Web Push API
+- Local Storage
+
+### Mobile
+- React Native 0.80
+- React Navigation 6
+- React Native Paper
+- AsyncStorage
+- Push Notifications
+
+### Shared
+- date-fns
+- UUID generation
+- Cross-platform utilities
+
+## 📋 Requirements
+
+### PWA
+- Modern web browser
+- JavaScript enabled
+- HTTPS for service worker (production)
+
+### Mobile
+- iOS 12+ / Android 6.0+
+- React Native development environment
+- Xcode (iOS) / Android Studio (Android)
+
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
+4. Test on both PWA and mobile
 5. Submit a pull request
 
-## License
+### Development Guidelines
+- Follow existing code style
+- Test on multiple platforms
+- Update documentation
+- Ensure shared logic compatibility
 
-This project is licensed under the ISC License.
+## 📄 License
 
-## Migration from Vanilla JavaScript
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
-This React version is a complete rewrite of the original vanilla JavaScript application. The core functionality remains the same, but the codebase is now:
+## 🙏 Acknowledgments
 
-- More maintainable with component-based architecture
-- Easier to test with isolated components
-- More performant with React's virtual DOM
-- Better developer experience with modern tooling
+- React and React Native communities
+- Material Design principles
+- Open source contributors
+- Prayer and faith communities for inspiration
 
-All existing data from the vanilla JavaScript version should be compatible and will be automatically migrated when you first load the React app.
+## 📞 Support
+
+For questions, issues, or contributions:
+- Open an issue on GitHub
+- Check the documentation
+- Review the troubleshooting guides
+
+---
+
+**Prayer & Praise** - Keeping faith and gratitude organized across all your devices. 🙏✨ 

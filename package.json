@@ -1,57 +1,45 @@
 {
-  "name": "prayer-praise-react",
+  "name": "prayer-app",
   "version": "1.0.0",
-  "homepage": "https://prayer-app.github.io/",
-  "main": "index.js",
+  "description": "Prayer & Praise App - Cross-platform prayer and praise tracking",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "start": "craco start",
-    "build": "echo 'Starting build process...' && ls -la public/ && BUILD_PATH=dist craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject",
-    "clean": "rimraf dist",
-    "clean:build": "npm run clean && npm run build",
-    "generate-icons": "node generate-favicon.js",
-    "lint": "eslint . --ext .js,.jsx",
-    "lint:fix": "eslint . --ext .js,.jsx --fix"
+    "install:all": "npm install && npm run install:packages",
+    "install:packages": "npm install --workspace=packages/shared && npm install --workspace=packages/web && npm install --workspace=packages/mobile && npm install --workspace=packages/desktop",
+    "web:start": "npm run start --workspace=packages/web",
+    "web:build": "npm run build --workspace=packages/web",
+    "web:test": "npm run test --workspace=packages/web",
+    "web:lint": "npm run lint --workspace=packages/web",
+    "mobile:start": "npm run start --workspace=packages/mobile",
+    "mobile:ios": "npm run ios --workspace=packages/mobile",
+    "mobile:android": "npm run android --workspace=packages/mobile",
+    "mobile:clean": "npm run clean --workspace=packages/mobile",
+    "mobile:pod-install": "npm run pod-install --workspace=packages/mobile",
+    "desktop:start": "npm run start --workspace=packages/desktop",
+    "desktop:dev": "npm run dev --workspace=packages/desktop",
+    "desktop:build": "npm run build --workspace=packages/desktop",
+    "desktop:dist": "npm run dist --workspace=packages/desktop",
+    "desktop:dist:win": "npm run dist:win --workspace=packages/desktop",
+    "desktop:dist:mac": "npm run dist:mac --workspace=packages/desktop",
+    "desktop:dist:linux": "npm run dist:linux --workspace=packages/desktop",
+    "shared:build": "echo 'Shared package is ready to use'",
+    "clean": "npm run clean --workspaces --if-present",
+    "build": "npm run shared:build && npm run web:build",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present"
   },
-  "keywords": [],
+  "keywords": ["prayer", "praise", "pwa", "react-native", "electron", "cross-platform"],
   "author": "",
   "license": "ISC",
-  "description": "Prayer and Praise tracking app built with React",
-  "dependencies": {
-    "bootstrap": "^5.3.0",
-    "bootstrap-icons": "^1.11.0",
-    "date-fns": "^2.30.0",
-    "date-fns-tz": "^2.0.0",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.8.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
-  },
   "devDependencies": {
-    "@craco/craco": "^7.1.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^14.6.1",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "jest": "^27.5.1",
-    "png-to-ico": "^2.1.8",
-    "sharp": "^0.34.2"
+    "rimraf": "^5.0.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
   }
 }

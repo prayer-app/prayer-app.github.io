@@ -1,0 +1,15 @@
+{
+  "name": "prayer-app-workspace",
+  "description": "Prayer & Praise App Monorepo Workspace",
+  "packages": [
+    "packages/*"
+  ],
+  "scripts": {
+    "setup": "npm run install:all",
+    "dev:web": "npm run web:start",
+    "dev:mobile": "npm run mobile:start",
+    "build:all": "npm run build",
+    "test:all": "npm run test",
+    "lint:all": "npm run lint"
+  }
+} 

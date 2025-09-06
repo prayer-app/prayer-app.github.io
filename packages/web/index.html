@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer & Praise</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="public/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="public/icons/icon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/icons/icon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="public/icons/icon-48x48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="public/icons/icon-64x64.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="public/icons/icon-96x96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="public/icons/icon-128x128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="public/icons/icon-144x144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="public/icons/icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="167x167" href="public/icons/icon-167x167.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="public/icons/icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="public/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="public/icons/icon-256x256.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="public/icons/icon-384x384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="public/icons/icon-512x512.png">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="public/icons/icon-180x180.png">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="public/icons/icon-144x144.png">
+    
+    <!-- Safari Pinned Tab -->
+    <link rel="mask-icon" href="public/icons/icon.svg" color="#000000">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light no-mptb">
+        <div class="container-fluid no-mptb">
+            <a class="navbar-brand d-flex align-items-center" href="#" title="Prayer & Praise">
+                <img src="public/icons/icon.svg" alt="Prayer & Praise" width="24" height="24">
+            </a>
+            <ul class="nav nav-pills mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" id="prayer-tab" data-bs-toggle="pill" href="#prayer">Prayer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="praise-tab" data-bs-toggle="pill" href="#praise">Praise</a>
+                </li>
+            </ul>
+            <button class="btn btn-link settings-btn" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                <i class="bi bi-gear-fill"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid px-0">
+        <div class="tab-content">
+            <!-- Prayer Section -->
+            <div class="tab-pane fade show active" id="prayer">
+                <div class="row g-0">
+                    <!-- Prayer List -->
+                    <div class="col-12 prayer-group">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">Prayer List</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPrayerModal">
+                                        <i class="bi bi-plus-circle me-1"></i>Add Prayer
+                                    </button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Person</th>
+                                                <th>Follow-up Date</th>
+                                                <th>Last Followed Up</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="prayerList">
+                                            <!-- Prayer items will be inserted here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Answered Prayers -->
+                    <div class="col-12 prayer-group">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Answered Prayers</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Person</th>
+                                                <th>Follow-up Date</th>
+                                                <th>Last Followed Up</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="answeredPrayerList">
+                                            <!-- Answered prayer items will be inserted here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Archived Prayers -->
+                    <div class="col-12 prayer-group">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Archived Prayers</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Person</th>
+                                                <th>Follow-up Date</th>
+                                                <th>Last Followed Up</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="archivedPrayerList">
+                                            <!-- Archived prayer items will be inserted here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Prayer Floating Action Button -->
+                <button class="fab" id="addPrayerBtn" data-bs-toggle="modal" data-bs-target="#addPrayerModal">
+                    <i class="bi bi-plus-lg"></i>
+                    <span>Add Prayer</span>
+                </button>
+            </div>
+
+            <!-- Praise Section -->
+            <div class="tab-pane fade" id="praise">
+                <div class="row g-0">
+                    <!-- Praise List -->
+                    <div class="col-12">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title mb-0">Praise List</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPraiseModal">
+                                        <i class="bi bi-plus-circle me-1"></i>Add Praise
+                                    </button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Praise</th>
+                                                <th>Praised On</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="praiseList">
+                                            <!-- Praise items will be inserted here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Archived Praises -->
+                    <div class="col-12 mt-4">
+                        <div class="card border-0 rounded-0">
+                            <div class="card-body">
+                                <h5 class="card-title">Archived Praises</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Praise</th>
+                                                <th>Praised On</th>
+                                                <th class="text-end">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="archivedPraiseList">
+                                            <!-- Archived praise items will be inserted here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Praise Floating Action Button -->
+                <button class="fab" id="addPraiseBtn" data-bs-toggle="modal" data-bs-target="#addPraiseModal">
+                    <i class="bi bi-plus-lg"></i>
+                    <span>Add Praise</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prayer Modal -->
+    <div class="modal fade" id="addPrayerModal" tabindex="-1" aria-labelledby="addPrayerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPrayerModalLabel">Add Prayer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addPrayerForm">
+                        <div class="mb-3">
+                            <label for="person" class="form-label">Person</label>
+                            <input type="text" class="form-control" id="person" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="prayer" class="form-label">Prayer</label>
+                            <textarea class="form-control" id="prayer" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="followup_at" class="form-label">Follow-up Date</label>
+                            <input type="date" class="form-control" id="followup_at">
+                        </div>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add Prayer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Praise Modal -->
+    <div class="modal fade" id="addPraiseModal" tabindex="-1" aria-labelledby="addPraiseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPraiseModalLabel">Add Praise</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addPraiseForm">
+                        <div class="mb-3">
+                            <label for="praiseText" class="form-label">Praise</label>
+                            <textarea class="form-control" id="praiseText" rows="3" required></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add Praise</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remove Confirmation Modal -->
+    <div class="modal fade" id="removeConfirmModal" tabindex="-1" aria-labelledby="removeConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="removeConfirmModalLabel">Confirm Removal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to remove this prayer? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmRemove">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Follow-up Modal -->
+    <div class="modal fade" id="followupModal" tabindex="-1" aria-labelledby="followupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="followupModalLabel">Manage Follow-up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <h6>Follow-up History</h6>
+                        <div id="followupHistory" class="list-group mb-3">
+                            <!-- Follow-up history will be inserted here -->
+                        </div>
+                    </div>
+                    <form id="followupForm">
+                        <div class="mb-3">
+                            <label for="newFollowupDate" class="form-label">New Follow-up Date</label>
+                            <input type="date" class="form-control" id="newFollowupDate">
+                        </div>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Set Follow-up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prayer Details Modal -->
+    <div class="modal fade" id="prayerDetailsModal" tabindex="-1" aria-labelledby="prayerDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="prayerDetailsModalLabel">Prayer Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <h6>Person</h6>
+                        <p id="detailsPerson"></p>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Prayer</h6>
+                        <p id="detailsPrayer"></p>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Follow-up Date</h6>
+                        <p id="detailsFollowup"></p>
+                    </div>
+                    <div class="mb-3">
+                        <h6>Status</h6>
+                        <p id="detailsStatus"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-primary" id="exportDataBtn">
+                            <i class="bi bi-download me-2"></i>Export Data
+                        </button>
+                        <button type="button" class="btn btn-danger" id="resetDatabaseBtn">
+                            <i class="bi bi-trash me-2"></i>Reset Database
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Database Confirmation Modal -->
+    <div class="modal fade" id="resetConfirmModal" tabindex="-1" aria-labelledby="resetConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resetConfirmModalLabel">Confirm Reset</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">Warning: This will permanently delete all prayers and praises. This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmReset">Reset Database</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Prayer Modal -->
+    <div class="modal fade" id="editPrayerModal" tabindex="-1" aria-labelledby="editPrayerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPrayerModalLabel">Edit Prayer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editPrayerForm">
+                        <input type="hidden" id="editPrayerIndex">
+                        <div class="mb-3">
+                            <label for="editPerson" class="form-label">Person</label>
+                            <input type="text" class="form-control" id="editPerson" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPrayer" class="form-label">Prayer</label>
+                            <textarea class="form-control" id="editPrayer" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editFollowupAt" class="form-label">Follow-up Date</label>
+                            <input type="date" class="form-control" id="editFollowupAt">
+                        </div>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="src/assets/js/vendor.bundle.js"></script>
+    <script src="src/assets/js/app.bundle.js" defer></script>
+    <!-- Custom CSS - Load after Bootstrap to override defaults -->
+    <link href="src/assets/css/styles.css" rel="stylesheet">
+</body>
+</html> 
