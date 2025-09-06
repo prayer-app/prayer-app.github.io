@@ -1,6 +1,22 @@
 /* ===== BASE STYLES ===== */
+html {
+    /* Prevent zooming */
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     background-color: #f8f9fa;
+    /* Prevent zooming and text selection */
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .no-mptb {

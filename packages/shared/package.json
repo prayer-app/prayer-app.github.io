@@ -6,9 +6,13 @@
   "type": "module",
   "exports": {
     ".": "./index.js",
+    "./index.js": "./index.js",
     "./storage": "./storage.js",
+    "./storage.js": "./storage.js",
     "./dateUtils": "./dateUtils.js",
-    "./notifications": "./notifications.js"
+    "./dateUtils.js": "./dateUtils.js",
+    "./notifications": "./notifications.js",
+    "./notifications.js": "./notifications.js"
   },
   "keywords": ["prayer", "praise", "shared", "utilities"],
   "author": "",
@@ -16,8 +20,12 @@
   "dependencies": {
     "date-fns": "^2.30.0"
   },
-  "peerDependencies": {
-    "@react-native-async-storage/async-storage": "^1.21.0",
-    "react-native-push-notification": "^8.1.1"
+  "peerDependenciesMeta": {
+    "@react-native-async-storage/async-storage": {
+      "optional": true
+    },
+    "react-native-push-notification": {
+      "optional": true
+    }
   }
 } 

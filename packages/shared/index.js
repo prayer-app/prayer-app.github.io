@@ -9,7 +9,7 @@ export {
   savePraises, 
   resetDatabase, 
   exportData 
-} from './storage';
+} from './storage.js';
 
 export { 
   generateUUID, 
@@ -18,7 +18,7 @@ export {
   isToday,
   isPastDue,
   getDaysUntil
-} from './dateUtils';
+} from './dateUtils.js';
 
 export { 
   initializeNotifications,
@@ -27,7 +27,7 @@ export {
   sendTestNotification,
   isEnabled,
   requestPermission
-} from './notifications';
+} from './notifications.js';
 
 // Shared constants
 export const APP_NAME = 'Prayer & Praise';

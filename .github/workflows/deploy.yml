@@ -19,14 +19,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 20
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install web dependencies
+        run: |
+          cd packages/web
+          yarn install
 
-      - name: Build
-        run: npm run build
+      - name: Build web package
+        run: cd packages/web && yarn build
         env:
           CI: false
 
@@ -35,6 +36,9 @@ jobs:
         with:
           path: './dist'
           exclude: |
+            packages/desktop/**
+            packages/mobile/**
+            packages/shared/**
             package.json
             package-lock.json
             .gitignore
