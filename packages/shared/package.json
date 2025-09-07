@@ -19,13 +19,5 @@
   "license": "ISC",
   "dependencies": {
     "date-fns": "^2.30.0"
-  },
-  "peerDependenciesMeta": {
-    "@react-native-async-storage/async-storage": {
-      "optional": true
-    },
-    "react-native-push-notification": {
-      "optional": true
-    }
   }
 } 

@@ -16,9 +16,9 @@ import {
   savePraises, 
   resetDatabase, 
   exportData 
-} from '@prayer-app/shared/index.js';
-import { generateUUID, formatDateForStorage } from '@prayer-app/shared/index.js';
-import notificationService from '@prayer-app/shared/notifications.js';
+} from './utils/webStorage.js';
+import { generateUUID, formatDateForStorage } from './utils/webUtils.js';
+import notificationService from './utils/webNotifications.js';
 import { 
   isElectron, 
   exportDataDesktop, 

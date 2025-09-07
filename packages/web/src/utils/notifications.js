@@ -69,8 +69,8 @@ class NotificationService {
 
     try {
       const defaultOptions = {
-        icon: '/prayer-icon.svg',
-        badge: '/prayer-icon.svg',
+        icon: '/icons/icon.svg',
+        badge: '/icons/icon.svg',
         tag: 'prayer-app',
         requireInteraction: false,
         silent: !this.settings.soundEnabled,
@@ -110,7 +110,7 @@ class NotificationService {
         {
           action: 'view',
           title: 'View Prayer',
-          icon: '/prayer-icon.svg'
+          icon: '/icons/icon.svg'
         },
         {
           action: 'dismiss',

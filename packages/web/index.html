@@ -463,6 +463,55 @@
                 e.preventDefault();
             }
         });
+        
+        // Prevent overscroll/rubber banding
+        document.addEventListener('touchstart', function (e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        document.addEventListener('touchmove', function (e) {
+            // Prevent overscroll when at the top or bottom
+            const target = e.target;
+            const scrollableParent = target.closest('[data-scrollable]') || document.getElementById('root');
+            
+            if (scrollableParent) {
+                const scrollTop = scrollableParent.scrollTop;
+                const scrollHeight = scrollableParent.scrollHeight;
+                const clientHeight = scrollableParent.clientHeight;
+                const touch = e.touches[0];
+                const deltaY = touch.clientY - (touch.startY || touch.clientY);
+                
+                // Prevent overscroll at top
+                if (scrollTop <= 0 && deltaY > 0) {
+                    e.preventDefault();
+                }
+                // Prevent overscroll at bottom
+                if (scrollTop + clientHeight >= scrollHeight && deltaY < 0) {
+                    e.preventDefault();
+                }
+            }
+        }, { passive: false });
+        
+        // Prevent horizontal overscroll
+        document.addEventListener('touchmove', function (e) {
+            const target = e.target;
+            const scrollableParent = target.closest('[data-scrollable]') || document.getElementById('root');
+            
+            if (scrollableParent) {
+                const scrollLeft = scrollableParent.scrollLeft;
+                const scrollWidth = scrollableParent.scrollWidth;
+                const clientWidth = scrollableParent.clientWidth;
+                const touch = e.touches[0];
+                const deltaX = touch.clientX - (touch.startX || touch.clientX);
+                
+                // Prevent horizontal overscroll
+                if ((scrollLeft <= 0 && deltaX > 0) || (scrollLeft + clientWidth >= scrollWidth && deltaX < 0)) {
+                    e.preventDefault();
+                }
+            }
+        }, { passive: false });
     </script>
 </body>
 </html> 

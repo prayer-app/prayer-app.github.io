@@ -32,7 +32,14 @@
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present"
   },
-  "keywords": ["prayer", "praise", "pwa", "react-native", "electron", "cross-platform"],
+  "keywords": [
+    "prayer",
+    "praise",
+    "pwa",
+    "react-native",
+    "electron",
+    "cross-platform"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -41,5 +48,9 @@
   "engines": {
     "node": ">=16",
     "npm": ">=8"
-  }
+  },
+  "overrides": {
+    "glob": "^10.4.5"
+  },
+  "dependencies": {}
 }

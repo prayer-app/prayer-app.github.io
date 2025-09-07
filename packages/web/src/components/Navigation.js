@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
-import prayerIcon from '../assets/images/icons/icon.svg';
+// Icon is served from public directory
+const prayerIcon = '/icons/icon.svg';
 
 const Navigation = ({ activeTab, onTabChange, onSettingsClick }) => {
   return (

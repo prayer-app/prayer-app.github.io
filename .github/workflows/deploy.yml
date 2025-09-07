@@ -19,30 +19,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
-      - name: Install web dependencies
+      - name: Install web dependencies only
         run: |
           cd packages/web
-          yarn install
+          npm install --legacy-peer-deps --no-package-lock
 
       - name: Build web package
-        run: cd packages/web && yarn build
+        run: |
+          cd packages/web
+          npm run build
         env:
           CI: false
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
-          exclude: |
-            packages/desktop/**
-            packages/mobile/**
-            packages/shared/**
-            package.json
-            package-lock.json
-            .gitignore
-            README.md
+          path: './packages/web/dist'
 
   deploy:
     needs: build
