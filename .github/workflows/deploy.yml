@@ -33,6 +33,13 @@ jobs:
         env:
           CI: false
 
+      - name: Verify build contents
+        run: |
+          echo "Contents of dist folder:"
+          ls -la packages/web/dist/
+          echo "Contents of icons folder:"
+          ls -la packages/web/dist/icons/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
