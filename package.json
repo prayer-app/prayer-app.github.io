@@ -4,15 +4,13 @@
   "description": "Prayer & Praise App - Cross-platform prayer and praise tracking",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/mobile",
+    "packages/desktop",
+    "packages/shared"
   ],
   "scripts": {
     "install:all": "npm install && npm run install:packages",
-    "install:packages": "npm install --workspace=packages/shared && npm install --workspace=packages/web && npm install --workspace=packages/mobile && npm install --workspace=packages/desktop",
-    "web:start": "npm run start --workspace=packages/web",
-    "web:build": "npm run build --workspace=packages/web",
-    "web:test": "npm run test --workspace=packages/web",
-    "web:lint": "npm run lint --workspace=packages/web",
+    "install:packages": "npm install --workspace=packages/shared && npm install --workspace=packages/mobile && npm install --workspace=packages/desktop",
     "mobile:start": "npm run start --workspace=packages/mobile",
     "mobile:ios": "npm run ios --workspace=packages/mobile",
     "mobile:android": "npm run android --workspace=packages/mobile",
@@ -27,7 +25,7 @@
     "desktop:dist:linux": "npm run dist:linux --workspace=packages/desktop",
     "shared:build": "echo 'Shared package is ready to use'",
     "clean": "npm run clean --workspaces --if-present",
-    "build": "npm run shared:build && npm run web:build",
+    "build": "npm run shared:build",
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present"
